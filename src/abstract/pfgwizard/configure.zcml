@@ -1,0 +1,44 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="abstract.pfgwizard">
+
+    <includeDependencies package="." />
+
+    <i18n:registerTranslations directory="locales" />
+
+    <include package=".browser" />
+
+
+    <genericsetup:registerProfile
+      name="default"
+      title="abstract.pfgwizard"
+      directory="profiles/default"
+      description="Installs the abstract.pfgwizard add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <genericsetup:importStep
+      name="abstract.pfgwizard-postInstall"
+      title="abstract.pfgwizard post_install import step"
+      description="Post install import step from abstract.pfgwizard"
+      handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
+    <!-- schema extenders -->
+    <include package="archetypes.schemaextender" />
+    <adapter
+      factory=".extenders.FormExtender"
+      provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+      name="form_fields"
+      />
+
+    <!-- <adapter
+      factory=".extenders.FormExtender"
+      provides="archetypes.schemaextender.interfaces.ISchemaModifier"
+      name="form_fields"
+      /> -->
+
+</configure>

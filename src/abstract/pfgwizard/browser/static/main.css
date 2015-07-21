@@ -1,0 +1,30 @@
+#content .pfg-form ul.tab-nav {
+    margin: 1em 0;
+}
+#content .pfg-form ul.tab-nav li{
+    display: inline;
+    padding: 0 1em;
+}
+#content .pfg-form ul.tab-nav li a{
+    padding: 0.2em 0.5em;
+    border-radius: 10px;
+}
+#content .pfg-form ul.tab-nav li a.current{
+    background-color: #ccc;
+}
+#content .pfg-form ul.tab-nav li a.error{
+    background-color: red !important;
+    color: white !important;
+}
+#content .pfg-form .prev-next-nav{
+    margin: 1em 0;
+}
+#content .pfg-form .prev-next-nav a{
+    padding: 0 1em;
+}
+
+#content .pfg-form ul.tab-nav li a:link,
+#content .prev-next-nav a:link{
+    text-decoration: none;
+    border: none;
+}

@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="abstract.pfgwizard">
+
+    <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+    <include package="z3c.jbot" file="meta.zcml" />
+    <browser:jbot
+        directory="overrides"
+        layer="abstract.pfgwizard.interfaces.IAbstractPfgwizardLayer"
+        />
+
+    <!-- Publish static files -->
+    <browser:resourceDirectory
+        name="abstract.pfgwizard"
+        directory="static"
+        layer="abstract.pfgwizard.interfaces.IAbstractPfgwizardLayer"
+        />
+
+    <browser:page
+      for="*"
+      name="pfg-wizard-vars.js"
+      class=".jsvariables.JSVariables"
+      permission="zope.Public"
+      layer="abstract.pfgwizard.interfaces.IAbstractPfgwizardLayer"
+      />
+
+    <browser:viewlet
+      name="abstract.pfgwizard.jsvars"
+      for="Products.PloneFormGen.interfaces.IPloneFormGenForm"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      permission="zope2.View"
+      template="jsvars.pt"
+      class=".jsvariables.JSVariables"
+      />
+
+</configure>
