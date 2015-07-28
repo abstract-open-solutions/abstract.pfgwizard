@@ -12,6 +12,8 @@ Adds a field "Wizard mode" to the form and use it to render the form as a wizard
 
 The rendering occurs via javascript and it relys on Plone's `jquerytools.tabs` feature.
 
+The field is added via `archetypes.schemaextender`.
+
 
 
 Translations

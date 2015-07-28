@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if(typeof pfg_wizard != undefined) {
+  if(typeof pfg_wizard !== 'undefined') {
     if(pfg_wizard.on && !$('body').hasClass('template-base_edit')) {
       make_tabs('#pfg-fieldwrapper');
     }
